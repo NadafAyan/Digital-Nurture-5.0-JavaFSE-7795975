@@ -1,2 +1,5 @@
-# Digital-Nurture-5.0-JavaFSE-7795975
-Module-wise Submissions of Digital Nurture Program 5.0 JAVA FSE By COGNIZANT
+# Digital Nurture Program 5.0 Java FSE Module-wise Submissions
+
+### Name : Ayan Nadaf
+### SuperSet ID : 7795975
+### Email : ayannadafdev@gmail.com
