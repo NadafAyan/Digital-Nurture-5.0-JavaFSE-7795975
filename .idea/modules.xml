@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Adapter Design Pattern/Adapter Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Adapter Design Pattern/Adapter Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Builder Design Pattern/Builder Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Builder Design Pattern/Builder Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Command Design Pattern/Command Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Command Design Pattern/Command Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Decorator Design Pattern/Decorator Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Decorator Design Pattern/Decorator Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Dependency Injection Pattern/Dependency Injection Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Dependency Injection Pattern/Dependency Injection Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Digital-Nurture-5.0-JavaFSE-7795975.iml" filepath="$PROJECT_DIR$/.idea/Digital-Nurture-5.0-JavaFSE-7795975.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Factory Method Pattern/Factory Method Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Factory Method Pattern/Factory Method Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/MVC Design Pattern/MVC Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/MVC Design Pattern/MVC Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Observer Design Pattern/Observer Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Observer Design Pattern/Observer Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Proxy Design Pattern/Proxy Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Proxy Design Pattern/Proxy Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Singleton Design Pattern/Singleton Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Singleton Design Pattern/Singleton Design Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Design Patterns/Strategy Design Pattern/Strategy Design Pattern.iml" filepath="$PROJECT_DIR$/Design Patterns/Strategy Design Pattern/Strategy Design Pattern.iml" />
+    </modules>
+  </component>
+</project>
