@@ -30,9 +30,9 @@ public class OrmLearnApplication {
 		LOGGER.info("Start");
 
 		List<Country> countries = countryService.getAllCountries();
-		Country country = countryService.findCountryByCode("IN");
+//		Country country = countryService.findCountryByCode("IN");
 
-		LOGGER.debug("Country : {}", country);
+//		LOGGER.debug("Country : {}", country);
 
 		LOGGER.debug("Countries = {}", countries);
 
