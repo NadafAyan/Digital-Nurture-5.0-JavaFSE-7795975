@@ -20,7 +20,20 @@ public class SpringLearnApplication {
 		SpringApplication.run(SpringLearnApplication.class, args);
 //		System.out.println("This is a Spring Boot Application");
 
-		displayDate();
+//		displayDate();
+		displayCountry();
+	}
+
+	public static void displayCountry() {
+
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("country.xml");
+
+		Country country =
+				context.getBean("country", Country.class);
+
+		LOGGER.debug("Country : {}", country);
+
 	}
 
 	public static void displayDate() {
