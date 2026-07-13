@@ -3,18 +3,16 @@ package app.vercel.ayannadaf.mircroservicesDemo.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
-
-//@RestController
-public class UserController {
+@RestController
+public class SecureController {
 
     @GetMapping("/")
     public String home() {
-        return "Welcome!";
+        return "Public Endpoint";
     }
 
-    @GetMapping("/user")
-    public Principal user(Principal principal) {
-        return principal;
+    @GetMapping("/secure")
+    public String secure() {
+        return "This is a secure endpoint";
     }
 }
