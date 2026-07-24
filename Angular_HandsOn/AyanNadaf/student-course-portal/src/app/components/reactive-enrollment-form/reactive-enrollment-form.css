@@ -1,0 +1,15 @@
+form {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 460px;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+button {
+  width: fit-content;
+  padding: 0.5rem 0.8rem;
+}

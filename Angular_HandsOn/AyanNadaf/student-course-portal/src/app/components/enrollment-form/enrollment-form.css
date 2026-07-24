@@ -1,0 +1,23 @@
+.valid-field {
+  border: 2px solid green;
+}
+
+.invalid-field {
+  border: 2px solid red;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 420px;
+}
+
+input[type='text'], input[type='email'] {
+  width: 100%;
+  padding: 0.5rem;
+}

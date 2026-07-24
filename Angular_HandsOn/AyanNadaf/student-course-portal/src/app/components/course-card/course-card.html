@@ -1,0 +1,8 @@
+<article class="course-card" appHighlight [highlightColor]="'#f59e0b'">
+  <h3>{{ course.name }}</h3>
+  <p><strong>Code:</strong> {{ course.code }}</p>
+  <p><strong>Credits:</strong> {{ course.credits | creditLabel }}</p>
+  <p><strong>Description:</strong> {{ course.description }}</p>
+  <p><strong>Grade Status:</strong> {{ course.gradeStatus }}</p>
+  <button type="button" (click)="onEnroll()">Enroll</button>
+</article>

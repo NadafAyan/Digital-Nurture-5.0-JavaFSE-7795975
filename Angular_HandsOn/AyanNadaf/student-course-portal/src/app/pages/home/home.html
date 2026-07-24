@@ -1,18 +1,18 @@
-<h1>Welcome to the {{portalName}}</h1>
+<h1>Welcome to the {{ portalName }}</h1>
 
 <p>
   Manage your courses, track your academic progress, and stay updated with your enrollments all in one place.
 </p>
 
-<button [disabled] = "!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
+<button [disabled]="!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
 <p>{{ message }}</p>
-<input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm">
+<input type="text" placeholder="Search courses..." [(ngModel)]="searchTerm" />
 <p>Searching for: {{ searchTerm }}</p>
 
 <div class="stats-container">
   <div class="stat-card">
     <h3>Courses Available</h3>
-    <p>12</p>
+    <p>{{ courseCount }}</p>
   </div>
 
   <div class="stat-card">
@@ -24,4 +24,10 @@
     <h3>GPA</h3>
     <p>3.8</p>
   </div>
+</div>
+
+<div class="navigation-links">
+  <a routerLink="/courses">View Courses</a>
+  <a routerLink="/enrollment">Template Form</a>
+  <a routerLink="/reactive-enrollment">Reactive Form</a>
 </div>

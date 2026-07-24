@@ -1,1 +1,11 @@
-<p>course-list works!</p>
+<h2>Available Courses</h2>
+
+<div class="course-list">
+  <app-course-card
+    *ngFor="let course of courses; trackBy: trackByCourseId"
+    [course]="course"
+    (enrollRequested)="onEnroll($event)"
+  ></app-course-card>
+</div>
+
+<p>Selected Course ID: {{ selectedCourseId }}</p>

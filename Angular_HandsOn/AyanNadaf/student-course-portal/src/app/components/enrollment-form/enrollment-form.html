@@ -1,0 +1,65 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <div>
+    <label>Student Name</label>
+    <input
+      name="studentName"
+      [(ngModel)]="studentName"
+      required
+      minlength="3"
+      [class.valid-field]="studentName.trim().length >= 3"
+      [class.invalid-field]="form.submitted && studentName.trim().length < 3"
+    />
+    <small *ngIf="form.submitted && studentName.trim().length < 3">Student name is required.</small>
+  </div>
+
+  <div>
+    <label>Student Email</label>
+    <input
+      name="studentEmail"
+      type="email"
+      [(ngModel)]="studentEmail"
+      required
+      email
+      [class.valid-field]="studentEmail.includes('@')"
+      [class.invalid-field]="form.submitted && !studentEmail.includes('@')"
+    />
+    <small *ngIf="form.submitted && !studentEmail.includes('@')">Please enter a valid email.</small>
+  </div>
+
+  <div>
+    <label>Course ID</label>
+    <input
+      name="courseId"
+      [(ngModel)]="courseId"
+      required
+      [class.valid-field]="courseId.trim().length > 0"
+      [class.invalid-field]="form.submitted && !courseId.trim()"
+    />
+    <small *ngIf="form.submitted && !courseId.trim()">Course ID is required.</small>
+  </div>
+
+  <div>
+    <label>Preferred Semester</label>
+    <input
+      name="preferredSemester"
+      [(ngModel)]="preferredSemester"
+      required
+      [class.valid-field]="preferredSemester.trim().length > 0"
+      [class.invalid-field]="form.submitted && !preferredSemester.trim()"
+    />
+    <small *ngIf="form.submitted && !preferredSemester.trim()">Preferred semester is required.</small>
+  </div>
+
+  <div>
+    <label>
+      <input type="checkbox" name="agreeToTerms" [(ngModel)]="agreeToTerms" />
+      Agree to Terms
+    </label>
+    <small *ngIf="form.submitted && !agreeToTerms">You must agree to the terms.</small>
+  </div>
+
+  <button type="submit" [disabled]="!isFormValid">Submit</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+
+  <p *ngIf="submitted" class="success-message">Enrollment submitted successfully!</p>
+</form>
