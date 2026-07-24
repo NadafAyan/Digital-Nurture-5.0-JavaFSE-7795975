@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
 import { CourseModel } from '../../models/course.model';
 import { CreditLabelPipe } from '../../pipes/credit-label.pipe';
 import { HighlightDirective } from '../../directives/highlight.directive';
-import { EnrollmentService } from '../../services/enrollment.service';
+import { enrollInCourse, unenrollFromCourse } from '../../store/enrollment/enrollment.actions';
+import { selectEnrolledCourseIds } from '../../store/enrollment/enrollment.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
+  standalone: true,
   selector: 'app-course-card',
   imports: [CommonModule, CreditLabelPipe, HighlightDirective],
   templateUrl: './course-card.html',
@@ -16,8 +20,11 @@ export class CourseCardComponent implements OnChanges {
   @Output() enrollRequested = new EventEmitter<number>();
   previousCourseValue: CourseModel | null = null;
   currentCourseValue: CourseModel | null = null;
+  enrolledCourseIds$: Observable<number[]>;
 
-  constructor(public enrollmentService: EnrollmentService) {}
+  constructor(private store: Store) {
+    this.enrolledCourseIds$ = this.store.select(selectEnrolledCourseIds);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['course']) {
@@ -32,11 +39,13 @@ export class CourseCardComponent implements OnChanges {
 
   onEnroll(): void {
     if (this.course) {
-      if (this.enrollmentService.isEnrolled(this.course.id)) {
-        this.enrollmentService.unenroll(this.course.id);
-      } else {
-        this.enrollmentService.enroll(this.course.id);
-      }
+      this.enrolledCourseIds$.subscribe((ids) => {
+        if (ids.includes(this.course.id)) {
+          this.store.dispatch(unenrollFromCourse({ courseId: this.course.id }));
+        } else {
+          this.store.dispatch(enrollInCourse({ courseId: this.course.id }));
+        }
+      }).unsubscribe();
       this.enrollRequested.emit(this.course.id);
     }
   }

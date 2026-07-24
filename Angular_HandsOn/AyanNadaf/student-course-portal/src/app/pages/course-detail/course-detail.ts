@@ -5,6 +5,7 @@ import { CourseModel } from '../../models/course.model';
 import { CourseService } from '../../services/course.service';
 
 @Component({
+  standalone: true,
   selector: 'app-course-detail',
   imports: [CommonModule],
   templateUrl: './course-detail.html',

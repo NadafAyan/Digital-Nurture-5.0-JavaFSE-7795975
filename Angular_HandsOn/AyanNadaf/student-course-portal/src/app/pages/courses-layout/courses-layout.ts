@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-courses-layout',
   imports: [RouterOutlet, RouterLink],
   templateUrl: './courses-layout.html',

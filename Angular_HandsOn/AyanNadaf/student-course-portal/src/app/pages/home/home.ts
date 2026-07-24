@@ -6,6 +6,7 @@ import { CourseSummaryWidgetComponent } from '../../components/course-summary-wi
 import { CourseService } from '../../services/course.service';
 
 @Component({
+  standalone: true,
   selector: 'app-home',
   imports: [CommonModule, FormsModule, RouterLink, CourseSummaryWidgetComponent],
   templateUrl: './home.html',

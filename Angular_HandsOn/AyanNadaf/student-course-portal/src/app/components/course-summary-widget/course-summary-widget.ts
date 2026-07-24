@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 
 @Component({
+  standalone: true,
   selector: 'app-course-summary-widget',
   imports: [],
   templateUrl: './course-summary-widget.html',

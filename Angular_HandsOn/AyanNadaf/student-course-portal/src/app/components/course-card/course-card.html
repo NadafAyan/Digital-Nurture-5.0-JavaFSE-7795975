@@ -4,6 +4,6 @@
   <p><strong>Credits:</strong> {{ course.credits | creditLabel }}</p>
   <p><strong>Grade Status:</strong> {{ course.gradeStatus }}</p>
   <button type="button" (click)="onEnroll()">
-    {{ enrollmentService.isEnrolled(course.id) ? 'Unenroll' : 'Enroll' }}
+    {{ (enrolledCourseIds$ | async)?.includes(course.id) ? 'Unenroll' : 'Enroll' }}
   </button>
 </article>

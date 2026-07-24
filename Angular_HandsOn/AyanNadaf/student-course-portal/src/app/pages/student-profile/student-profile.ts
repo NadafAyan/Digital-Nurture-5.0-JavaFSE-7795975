@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EnrollmentService } from '../../services/enrollment.service';
 
 @Component({
+  standalone: true,
   selector: 'app-student-profile',
   imports: [CommonModule],
   templateUrl: './student-profile.html',
