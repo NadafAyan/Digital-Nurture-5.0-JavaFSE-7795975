@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { CanComponentDeactivate } from '../../guards/can-deactivate.guard';
 
 @Component({
   selector: 'app-reactive-enrollment-form',
@@ -11,7 +12,7 @@ import { delay } from 'rxjs/operators';
   templateUrl: './reactive-enrollment-form.html',
   styleUrl: './reactive-enrollment-form.css',
 })
-export class ReactiveEnrollmentFormComponent implements OnInit {
+export class ReactiveEnrollmentFormComponent implements OnInit, CanComponentDeactivate {
   enrollmentForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -45,6 +46,13 @@ export class ReactiveEnrollmentFormComponent implements OnInit {
     if (this.enrollmentForm.valid) {
       alert('Reactive form submitted successfully!');
     }
+  }
+
+  canDeactivate(): boolean {
+    if (this.enrollmentForm.dirty) {
+      return window.confirm('You have unsaved changes. Leave this page?');
+    }
+    return true;
   }
 
   private courseCodeValidator(control: AbstractControl): ValidationErrors | null {

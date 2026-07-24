@@ -1,19 +1,23 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { Course } from '../../models/course';
+import { CommonModule } from '@angular/common';
+import { CourseModel } from '../../models/course.model';
 import { CreditLabelPipe } from '../../pipes/credit-label.pipe';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { EnrollmentService } from '../../services/enrollment.service';
 
 @Component({
   selector: 'app-course-card',
-  imports: [CreditLabelPipe, HighlightDirective],
+  imports: [CommonModule, CreditLabelPipe, HighlightDirective],
   templateUrl: './course-card.html',
   styleUrl: './course-card.css',
 })
 export class CourseCardComponent implements OnChanges {
-  @Input() course!: Course;
+  @Input() course!: CourseModel;
   @Output() enrollRequested = new EventEmitter<number>();
-  previousCourseValue: Course | null = null;
-  currentCourseValue: Course | null = null;
+  previousCourseValue: CourseModel | null = null;
+  currentCourseValue: CourseModel | null = null;
+
+  constructor(public enrollmentService: EnrollmentService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['course']) {
@@ -28,6 +32,11 @@ export class CourseCardComponent implements OnChanges {
 
   onEnroll(): void {
     if (this.course) {
+      if (this.enrollmentService.isEnrolled(this.course.id)) {
+        this.enrollmentService.unenroll(this.course.id);
+      } else {
+        this.enrollmentService.enroll(this.course.id);
+      }
       this.enrollRequested.emit(this.course.id);
     }
   }
